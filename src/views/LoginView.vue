@@ -1,12 +1,14 @@
 <template>
   <!-- Ensure #app spans 100% of the viewport -->
-  <div class="login-container">
+  <div class="main-container">
     <h1 class="login-title">This is a login page</h1>
 
-    <input class="username" placeholder="Username:" v-model="username" />
-    <input class="lastname" placeholder="lastname" v-model="lastname" />
-    <input class="dob" placeholder="dob" v-model="dob" />
-    <button @click="createUser">Create Account</button>
+    <div class="login-container">
+      <input class="username" placeholder="Username:" v-model="username" />
+      <input class="lastname" placeholder="lastname" v-model="lastname" />
+      <input class="dob" placeholder="dob" v-model="dob" />
+      <button @click="createUser">Create Account</button>
+    </div>
   </div>
 </template>
 
@@ -42,22 +44,30 @@ export default {
 </script>
 
 <style scoped>
+.main-container {
+  width: 30%;
+  background-color: black;
+  margin: auto;
+  height: 50%;
+  border-radius: 20px;
+}
+
 .login-container {
-  background-color: bisque;
-  padding: 0;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 80%;
+  background-color: grey;
+  border-radius: 20px;
+  padding: 20px; /* Adding padding for better appearance */
+  margin: 0 auto; /* Center horizontally */
 }
 
 .login-title {
-  margin: 0; /* Ensure no margin for the login title */
-  margin-block-start: 0; /* Override margin-block-start */
-  margin-block-end: 0; /* Override margin-block-end */
+  margin: 0 auto; /* Ensure no margin for the login title */
+  color: azure; /* Override margin-block-end */
+  text-align: center;
 }
 
 /* Reset browser styles */
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
 </style>

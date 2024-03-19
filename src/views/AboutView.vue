@@ -6,10 +6,11 @@
 
 <style scoped>
 .title {
-  margin: 0;
+  text-align: center;
 }
 
 .about {
+  margin: auto;
   width: 100%;
   background-color: aquamarine;
 }
