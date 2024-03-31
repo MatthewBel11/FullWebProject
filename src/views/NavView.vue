@@ -14,7 +14,18 @@
     </div>
 
     <div class="menu-slide" :class="{ 'menu-slide-active': isNavbarOpen }">
-      <!-- Content for the sliding menu -->
+      <div class="menui home">
+        <RouterLink to="/">HOME</RouterLink>
+      </div>
+      <div class="menui login">
+        <RouterLink to="/login">LOGIN</RouterLink>
+      </div>
+      <div class="menui about">
+        <RouterLink to="/about">ABOUT</RouterLink>
+      </div>
+      <div class="menui settings">
+        <RouterLink to="/">SETTINGS</RouterLink>
+      </div>
     </div>
 
     <div class="navbar">
@@ -47,6 +58,11 @@ const isNavbarOpen = ref(false)
 
 const toggleNavbar = () => {
   isNavbarOpen.value = !isNavbarOpen.value
+  if (isNavbarOpen.value) {
+    document.body.classList.add('no-scroll')
+  } else {
+    document.body.classList.remove('no-scroll')
+  }
 }
 </script>
 
@@ -112,7 +128,8 @@ const toggleNavbar = () => {
   height: 100%;
   background-color: #333; /* Adjust background color as needed */
   transition: left 0.2s ease-in-out; /* Smooth transition for sliding */
-  z-index: 1; /* Ensure sliding menu is behind menu icon */
+  z-index: 999;
+  padding-top: 75px; /* Ensure sliding menu is behind menu icon */
 }
 
 .menu-slide-active {
@@ -128,23 +145,9 @@ const toggleNavbar = () => {
   border-radius: 2px;
 }
 
-.menu-icon:active .line:nth-child(1) {
-  transform-origin: 75% 75%;
-  transform: rotate(-45deg);
-}
-
-.menu-icon:active .line:nth-child(2) {
-  width: 0px;
-}
-
-.menu-icon:active .line:nth-child(3) {
-  transform-origin: 100% 100%;
-  transform: rotate(45deg);
-}
-
 .menu-icon.rotated {
   position: relative;
-  z-index: 2;
+  z-index: 1000;
 }
 
 .rotated .rotated-line {
@@ -157,16 +160,57 @@ const toggleNavbar = () => {
 }
 
 .rotated .rotated-line:nth-child(1) {
-  transform-origin: 75% 75%;
-  transform: rotate(-45deg);
-}
-
-.rotated .rotated-line:nth-child(2) {
   width: 0px;
 }
 
+.rotated .rotated-line:nth-child(2) {
+  width: 0px; /* Assuming you want to keep this child as is */
+}
+
 .rotated .rotated-line:nth-child(3) {
-  transform-origin: 100% 100%;
+  /* Align the rotation origin to the bottom right */
+  transform-origin: bottom right;
+  /* Rotate 45 degrees */
   transform: rotate(45deg);
+}
+
+.rotated .rotated-line:nth-child(3):after {
+  content: ''; /* Ensures the pseudo-element is rendered */
+  display: block; /* Treats the pseudo-element like a block element */
+  width: 28px; /* Example width */
+  height: 3px; /* Example height */
+  background-color: rgb(255, 255, 255); /* Gives a visible color */
+  transform: rotate(90deg);
+  position: absolute; /* Positioning might be needed based on your layout */
+  border-radius: 2px;
+}
+
+.menui {
+  margin-bottom: 5px;
+  width: 100%;
+  height: 35px;
+}
+
+.menui a {
+  display: inline-block; /* or 'block', depending on your layout needs */
+  margin-top: 9.5px;
+  margin-left: 28px;
+  text-wrap: wrap;
+  color: azure;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: 'Seb Thin', sans-serif;
+}
+
+.menui:hover {
+  background: grey;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.home {
 }
 </style>
