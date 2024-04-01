@@ -8,6 +8,26 @@ html {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 200vh;
+  height: 100vh;
   margin: 0;
+}
+/* This styles the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track background color */
+}
+
+/* This styles the scrollbar thumb (the part you drag) */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Thumb background color */
+  /* Adds roundness to the thumb */
+}
+
+/* Changes the thumb color on hover or when clicking */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker shade on hover */
+}
+
+/* Styles the scrollbar itself (width, etc.) */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
 }
