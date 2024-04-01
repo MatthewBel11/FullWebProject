@@ -91,7 +91,6 @@ const toggleNavbar = () => {
 }
 
 .logo {
-  padding: 20px;
   height: 150px;
   object-fit: contain;
 }
@@ -108,7 +107,9 @@ const toggleNavbar = () => {
 }
 
 .navitem a {
-  color: #ffffff; /* Set text color */
+  background: linear-gradient(to right, #c0c0c0, #cccccc); /* Define your gradient */
+  -webkit-background-clip: text;
+  color: transparent;
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
@@ -139,7 +140,7 @@ const toggleNavbar = () => {
 .menu-icon .line {
   width: 28px;
   height: 3px;
-  background-color: #ffffff;
+  background-color: rgb(202, 202, 202);
   margin: 5px 0;
   margin-right: 20px;
   border-radius: 2px;
@@ -153,7 +154,7 @@ const toggleNavbar = () => {
 .rotated .rotated-line {
   width: 28px;
   height: 3px;
-  background-color: #ffffff;
+  background-color: rgb(202, 202, 202);
   margin: 5px 0;
   margin-right: 20px;
   border-radius: 2px;
