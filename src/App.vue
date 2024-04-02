@@ -45,8 +45,6 @@ const currentRoute = route.path
   src: url('../src/assets/fonts/Futura Light/linked.otf'); /* Modern Browsers */
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
-
 .hidden {
   margin: 0;
   padding: 0;
@@ -69,7 +67,7 @@ const currentRoute = route.path
 }
 
 .background-home {
-  background-image: url('../src/assets/images/image1.jpg');
+  background-image: url('../src/assets/images/image1.png');
 }
 
 .background-about {
